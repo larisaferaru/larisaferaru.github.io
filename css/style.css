@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+#stars { 
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: fixed;
+    background:#477ab9;
+    width:100vw;
+    height: 100vh;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+#stars:hover { 
+    background:#3D689C;
+}
+#app {
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    color: #202410;
+    position: absolute;
+    margin: auto;
+    width: 900px;
+    background-color: #edeef0;
+    min-height: 90vh;
+    top: 5vh;
+    left: 50%;
+    margin-left: -450px;
+}
+.container {
+    display: flex;
+}
+#leftMenu {
+    padding: 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 900px;
+    
+    transition: all 0.3s;
+    background-color: #1e87f0;
+}
+#leftMenu > nav {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+#leftMenu > nav > ul {
+    padding-left: 25px;
+}
+#leftMenu > nav > ul > a {
+    color: #202410;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+#leftMenu > nav > ul > a:hover {
+    color: #5f683c;
+    text-decoration: none;
+}
+.activeMenuLi::before {
+    color: #5f683c;
+}
+#leftMenu:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+#headerMain {
+    width: 700px;
+    display: block;
+}
+#mainPhoto {
+    background: url(/data/img/image-2020-11-17\ 20_59_14.jpg) 100% 100% no-repeat; /* Добавляем фон */
+    background-position: 70% 0;
+    background-size: cover;
+    float: left;
+    width: 300px;
+    height: 400px;
+    margin-right: 15px;
+}
+#description {
+    padding-right: 10px;
+}
+h1 {
+    font-size: 45px;
+    text-align: center;
+}
+h2 {
+    font-size: 27px;
+}
+p {
+    font-size: 20px;
+    padding: 5px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 900px;
+    height: 200px;
+    background-color: #202410a4;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.event {
+    width: 800px;
+    margin: auto;
+}

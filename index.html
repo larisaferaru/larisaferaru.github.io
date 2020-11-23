@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Название страницы</title>
+        <meta name="description" content="Описание страницы">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit-icons.js"></script>
+        <link rel="icon" href="/data/img/favicon.png">
+    </head>
+    <body>
+        <header>
+            <nav>
+
+            </nav>
+        </header>
+        <canvas id="stars"></canvas>
+        <script src="/js/backgrownd.js" type="text/javascript"></script>
+        <div id="app" class="uk-background-muted">
+            <div class="">
+                <aside id="leftMenu" class="uk-padding">
+                    <nav id="mainMenu">
+                        <ul id="menu" v-html="menu">
+                            
+                        </ul>
+                    </nav>
+                </aside>
+                <main class="uk-padding" style="height: 500px;">
+                    <section>
+                        <h1 class="uk-heading-hero uk-padding-small">Учитель начальных классов</h1>
+                        <div></h3><div class="uk-overflow-hidden"><img class="uk-padding-small .uk-padding-remove-top" uk-scrollspy="cls: uk-animation-scale-up; repeat: true" uk-parallax="blur: 2; sepia: 10;" v-bind:src="mainPhoto" style="float: left;" uk-img><h2 class="uk-heading-hero uk-text-capitalize">{{name + " " + surname}}</h2><p>{{description}}</p></div>
+                    </section>
+                </main>
+            </div>
+            <hr>
+            <div>
+                <h2 style="text-align: center;">Последние события</h2>
+                <div>
+                    <div class="event" style="justify-content: space-between;">
+                        <div class="container"><h6>23.11.2020</h6><h3>Тестовая новость!</h3></div>
+                        <p style="font-size: 18px;">Это будет первое сообщение на этом сайте, оно создано исключительно для проверки возможностей сайта!</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div style="width: 900px;height: 200px;"></div>
+            <footer>
+                <div style="justify-content: center;align-items: center;" class="container">
+                    <ul>
+                        <li><a href="/">Главная страница</a></li>
+                        <li><a href="/portfolio">Портфолио</a></li>
+                        <li><a href="mailto:larisaferaru@yandex.ru?subject=Вопрос от пользователя сайта">Связаться с учителем</a></li>
+                    </ul>
+                    <ul>
+                        <li><a>Карта сайта</a></li>
+                        <li><a href="https://github.com/larisaferaru/larisaferaru.github.io/blob/main/README.md">История разработки</a></li>
+                        <li><a href="mailto:vladimirkurdiukov@gmail.com?subject=Вопрос от пользователя сайта larisaferaru">Связаться с разработчиком</a></li>
+                    </ul>
+                    <ul>
+                        <li>(c) lava_frai</li>
+                        <li>Курдюков Владимир</li>
+                        <li>2020</li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+
+
+
+        <script src="/js/library.js"></script>  <!--Определяем библиотеки-->
+        <script src="/js/mainload.js"></script>   <!--Запрашиваем файл конфига, для последующей разборки-->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            pageNumber = 1;
+            const vm = new Vue({    //Обьект Vue JS Документация - https://ru.vuejs.org
+                el: '#app',
+                data: {
+                    name: mainJson.name,
+                    surname: mainJson.surname,
+                    middlename: mainJson.middlename,
+                    description: mainJson.description,
+                    mainPhoto: mainJson.main_photo,
+                    lowMainPhoto: "low_" + mainJson.main_photo,
+                    recentEvents: "Идет загрузка последних событий...",
+                    menu: "Идет закрузка меню..."
+                }
+            })
+        </script>
+        <script src="/js/menu.js"></script>    <!--Загружаем меню-->
+
+
+
+    </body>
+</html>

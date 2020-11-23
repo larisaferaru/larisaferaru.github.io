@@ -1,0 +1,12 @@
+{
+    "len": 1,
+    "events": [
+        {
+            "type": "standartEvent",
+            "header": "Тестовая новость!",
+            "text": "Это будет первое сообщение на этом сайте, оно создано исключительно для проверки возможностей сайта!",
+            "images": [["https://nsoft-s.com/en/mcserverhelp/bbsmessageinnotepad.png", "Описание 1"], "https://ds04.infourok.ru/uploads/ex/0879/00000878-b8f3062d/img2.jpg", "описание 2"],
+            "documents": ["http://htmlbook.ru/html/a/download", "https://jsonbin.io/"]
+        }      
+    ]
+  }
