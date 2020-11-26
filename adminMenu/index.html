@@ -31,8 +31,9 @@
                 </aside>
                 <main>
                     <section>
-                        <h1 class="uk-heading-hero uk-padding-small">Портфолио</h1>
+                        <h1 class="uk-heading-hero uk-padding-small">Страница разработчика</h1>
                     </section>
+                    <p>Не удалось получить доступ</p>
                 </main>
             </div>
 
@@ -66,7 +67,7 @@
         <script src="/js/mainload.js"></script>   <!--Запрашиваем файл конфига, для последующей разборки-->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script>
-            pageNumber = 2;
+            pageNumber = 0;
             const vm = new Vue({    //Обьект Vue JS Документация - https://ru.vuejs.org
                 el: '#app',
                 data: {
@@ -80,6 +81,25 @@
                     menu: "Идет закрузка меню..."
                 }
             })
+            var login = prompt("Пожалуйста, введите имя пользователя:", "");
+            var pwd = prompt("Пожалуйста, введите пароль:", "");
+
+            if (pwd == null || pwd == "" || login == null || login == "") {
+                
+            } else {
+                let eventReq = new XMLHttpRequest();
+                req.open("GET", "/data/txt/loginToAdmin.txt", false);
+                req.send();
+                if (req.responseText == login) {
+                    let eventReq = new XMLHttpRequest();
+                    req.open("GET", "/data/txt/pwdToAdmin.txt", false);
+                    req.send();
+                    if (req.responseText == pwd) {
+                        let a = "/adminMenu/menu.html"
+                        wdocument.location.href = a
+                    }
+                }
+            }
         </script>
         <script src="/js/menu.js"></script>    <!--Загружаем меню-->
 

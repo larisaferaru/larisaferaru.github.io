@@ -41,18 +41,52 @@
             <hr>
             <div>
                 <h2 style="text-align: center;">Последние события</h2>
-                <div>
+                <div v-html="recentEvents"></div>
+                <!--div>
                     <div class="event" style="justify-content: space-between;">
                         <div class="container"><h6>23.11.2020</h6><h3>Тестовая новость!</h3></div>
                         <p style="font-size: 18px;">Это будет первое сообщение на этом сайте, оно создано исключительно для проверки возможностей сайта!</p>
+                        <div class="slider">
+                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true" style="height: 350px;">
+
+                                <ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">
+                                    <li class="uk-width-3-4" style="height: 300px;" onclick="window.location = 'data/img/Screenshot_1.jpg'">
+                                        <div class="uk-cover-container">
+                                            <img src="data/img/Screenshot_1.jpg" alt="" uk-cover>
+                                        </div>
+                                    </li>
+
+                                    <li class="uk-width-3-4" style="height: 300px;" onclick="window.location = 'data/img/Screenshot_2.jpg'">
+                                        <div class="uk-cover-container">
+                                            <img src="data/img/Screenshot_2.jpg" alt="" uk-cover>
+                                        </div>
+                                    </li>
+
+                                    <li class="uk-width-3-4" style="height: 300px;" onclick="window.location = 'data/img/Screenshot_3.jpg'">
+                                        <div class="uk-cover-container">
+                                            <img src="data/img/Screenshot_3.jpg" alt="" uk-cover>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <a class="uk-position-center-left uk-position-small uk-hidden-hover sliderArrow" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                <a class="uk-position-center-right uk-position-small uk-hidden-hover sliderArrow" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                            
+                            </div>
+                        </div>
+                        <div class="sliderFiles">
+                            <h4>Приложенные файлы:</h4>
+                            <a href="/README.md" class="uk-button-default uk-button-text" style="text-decoration: none; padding: 5px;" download=""><span uk-icon="icon: file-text"></span>README.md</a>
+                            <a href="/README.md" class="uk-button-default uk-button-text" style="text-decoration: none; padding: 5px;" download=""><span uk-icon="icon: file-text"></span>README.md</a>
+                        </div>
                     </div>
                     <hr>
-                </div>
+                </div-->
             </div>
             <div style="width: 900px;height: 200px;"></div>
-            <footer>
+            <footer class="uk-tile-secondary">
                 <div style="justify-content: center;align-items: center;" class="container">
-                    <ul>
+                    <ul style="margin: 20px;">
                         <li><a href="/">Главная страница</a></li>
                         <li><a href="/portfolio">Портфолио</a></li>
                         <li><a href="mailto:larisaferaru@yandex.ru?subject=Вопрос от пользователя сайта">Связаться с учителем</a></li>
@@ -70,7 +104,6 @@
                 </div>
             </footer>
         </div>
-
 
 
         <script src="/js/library.js"></script>  <!--Определяем библиотеки-->
@@ -93,7 +126,7 @@
             })
         </script>
         <script src="/js/menu.js"></script>    <!--Загружаем меню-->
-
+        <script src="/js/events.js"></script>    <!--Загружаем новости-->
 
 
     </body>

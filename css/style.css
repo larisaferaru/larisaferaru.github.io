@@ -105,8 +105,27 @@ footer {
     background-color: #202410a4;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .event {
     width: 800px;
     margin: auto;
+    padding: 15px;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+.event:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+footer > ul {
+    margin: 20px;
+}
+.sliderArrow {
+    transition: all 1s;
+    border-radius: 5px;
+}
+.sliderArrow:hover {
+    background-color: #1111114f;
 }

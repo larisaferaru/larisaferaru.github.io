@@ -3,10 +3,19 @@
     "events": [
         {
             "type": "standartEvent",
+            "date": "24.11.2020",
             "header": "Тестовая новость!",
             "text": "Это будет первое сообщение на этом сайте, оно создано исключительно для проверки возможностей сайта!",
-            "images": [["https://nsoft-s.com/en/mcserverhelp/bbsmessageinnotepad.png", "Описание 1"], "https://ds04.infourok.ru/uploads/ex/0879/00000878-b8f3062d/img2.jpg", "описание 2"],
-            "documents": ["http://htmlbook.ru/html/a/download", "https://jsonbin.io/"]
-        }      
+            "images": ["data/img/Screenshot_1.jpg", "data/img/Screenshot_2.jpg", "data/img/Screenshot_3.jpg"],
+            "documents": ["/README.md", "/README.md"]
+        },
+        {
+            "type": "standartEvent",
+            "date": "25.11.2020",
+            "header": "Еше одна тестовая новость!",
+            "text": "Это будет первое сообщение на этом сайте, оно создано исключительно для проверки возможностей сайта!",
+            "images": [],
+            "documents": ["/README.md", "/README.md"]
+        }    
     ]
   }
