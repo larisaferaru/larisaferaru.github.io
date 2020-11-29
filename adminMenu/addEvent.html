@@ -31,11 +31,11 @@
                 </aside>
                 <main>
                     <section>
-                        <h1 class="uk-heading-hero uk-padding-small">Страница разработчика</h1>
+                        <h1 class="uk-heading-hero uk-padding-small">Создание новости</h1>
                     </section>
-                    <p>Доступ получен</p>
-                    <p>Что вы хотите сделать?</p>
-                    <button onclick="location = '/adminMenu/addEvent.html'">Создать новость</button>
+                    <p>Время публикации (Можно писать например в 2014 году): <input type="text" v-model="formHeader"></p>
+                    <p>Заголовок: <input type="text" v-model="formHeader"></p>
+                    <p>Основной текст: <textarea v-model="formText"></textarea></p>
                 </main>
             </div>
 
@@ -80,14 +80,19 @@
                     mainPhoto: mainJson.main_photo,
                     lowMainPhoto: "low_" + mainJson.main_photo,
                     recentEvents: "Идет загрузка последних событий...",
-                    menu: "Идет закрузка меню..."
+                    menu: "Идет закрузка меню...",
+                    formHeader: "",
+                    formText: "",
+                    formImages: [],
+                    formDocuments: []
+                },
+                methods: {
+                    addPhoto: function () {
+                        this.formImages.push(prompt())
+                    }
                 }
             })
-            
         </script>
         <script src="/js/menu.js"></script>    <!--Загружаем меню-->
-
-
-
     </body>
 </html>
