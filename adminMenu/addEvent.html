@@ -38,10 +38,14 @@
                     <p>Основной текст: <textarea v-model="formText" v-on:input="render"></textarea></p>
                     <button v-on:click="addPhoto">Добавить картинку</button>
                     <button v-on:click="addDocument">Добавить файл</button>
+                    <br>
+                    <button v-on:click="clearImages">Очистить изображения</button>
+                    <button v-on:click="clearDouments">Очистить файлы</button>
                 </main>
             </div>
             <div class="container" v-html="prototipText" style="margin-top: 25px;margin-bottom: 25px;"></div>
             <div style="height: 25;"></div>
+            <button style="margin: auto;" v-on:click="pushToServer">Опубликовать запись</button>
 
 
 
@@ -108,6 +112,14 @@
                         }
                         this.render()
                     },
+                    clearImages: function () {
+                        this.formImages = []
+                        this.render()
+                    },
+                    clearDouments: function () {
+                        this.formDocuments = []
+                        this.render()
+                    },
                     render: function () {
                         let eventsText = ""
                         let eventArray = {"events": [{
@@ -141,6 +153,22 @@
                         }
                         eventsText += '</div><hr>'
                         this.prototipText = eventsText;
+                    },
+                    pushToServer: function () {
+                        if (confirm("Вы уверены, что хотите опубликовать эту запись?\nПосле публикации она станет видна всем.\nСначала тщательно проверьте запись.")) {
+                            eventReq.open("GET", "https://api.jsonbin.io/b/5fbe83c7177c556ef9b2c69c/latest", false);
+                            eventReq.setRequestHeader("secret-key", "$2b$10$XH5aZr/st0eDUBWdbtD0rewEVGIIOI209qH09icZj8GknAeHK90xC");
+                            eventReq.send();
+                            let eventArray = JSON.parse(eventReq.responseText);
+                            let tempEvent = {
+                                "type": "standartEvent",
+                                "date": this.formData,
+                                "header": this.formHeader,
+                                "text": this.formText,
+                                "images": this.formImages,
+                                "documents": this.formDocuments
+                            }
+                        }
                     }
                 }
             })
