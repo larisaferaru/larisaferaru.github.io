@@ -33,11 +33,15 @@
                     <section>
                         <h1 class="uk-heading-hero uk-padding-small">Создание новости</h1>
                     </section>
-                    <p>Время публикации (Можно писать например в 2014 году): <input type="text" v-model="formHeader"></p>
-                    <p>Заголовок: <input type="text" v-model="formHeader"></p>
-                    <p>Основной текст: <textarea v-model="formText"></textarea></p>
+                    <p>Время публикации (Можно писать например в 2014 году): <input type="text" v-model="formData" v-on:input="render"></p>
+                    <p>Заголовок: <input type="text" v-model="formHeader" v-on:input="render"></p>
+                    <p>Основной текст: <textarea v-model="formText" v-on:input="render"></textarea></p>
+                    <button v-on:click="addPhoto">Добавить картинку</button>
+                    <button v-on:click="addDocument">Добавить файл</button>
                 </main>
             </div>
+            <div class="container" v-html="prototipText" style="margin-top: 25px;margin-bottom: 25px;"></div>
+            <div style="height: 25;"></div>
 
 
 
@@ -69,6 +73,7 @@
         <script src="/js/mainload.js"></script>   <!--Запрашиваем файл конфига, для последующей разборки-->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script>
+            var date = new Date();
             pageNumber = 0;
             const vm = new Vue({    //Обьект Vue JS Документация - https://ru.vuejs.org
                 el: '#app',
@@ -81,14 +86,61 @@
                     lowMainPhoto: "low_" + mainJson.main_photo,
                     recentEvents: "Идет загрузка последних событий...",
                     menu: "Идет закрузка меню...",
+                    formData: date.getDate().toString() + "." + date.getMonth().toString() + "." + date.getFullYear().toString(),
                     formHeader: "",
                     formText: "",
                     formImages: [],
-                    formDocuments: []
+                    formDocuments: [],
+                    prototipText: ""
                 },
                 methods: {
                     addPhoto: function () {
-                        this.formImages.push(prompt())
+                        let imgSrc = prompt("Вставьте ссылку на изображение:").replace(/ /g, "")
+                        if (imgSrc != "" && imgSrc != null) {
+                            this.formImages.push(imgSrc)
+                        }
+                        this.render()
+                    },
+                    addDocument: function () {
+                        let docSrc = prompt("Вставьте ссылку на документ:").replace(/ /g, "")
+                        if (docSrc != "" && docSrc != null) {
+                            this.formDocuments.push(docSrc)
+                        }
+                        this.render()
+                    },
+                    render: function () {
+                        let eventsText = ""
+                        let eventArray = {"events": [{
+                            "type": "standartEvent",
+                            "date": this.formData,
+                            "header": this.formHeader,
+                            "text": this.formText,
+                            "images": this.formImages,
+                            "documents": this.formDocuments
+                        }]}
+                        let i = 0
+                        eventsText += '<div class="event" style="justify-content: space-between;">'
+                        eventsText += '<div class="container"><h6>' + eventArray.events[i].date + '</h6><h3>' + eventArray.events[i].header + '</h3></div><p style="font-size: 18px;">' + eventArray.events[i].text + '</p>'
+                        if (eventArray.events[i].images.length != 0) {
+                            eventsText += '<div class="slider"><div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true" style="height: 350px;"><ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">'
+                            for (let j = 0; j < eventArray.events[i].images.length; j++) {
+                                eventsText += `<li class="uk-width-3-4" style="height: 300px;" onclick="window.location = '` + eventArray.events[i].images[j] + `'">`
+                                eventsText += '<div class="uk-cover-container"><img src="' + eventArray.events[i].images[j] + '" alt="" uk-cover></div></li>'
+                            }
+                            eventsText += '</ul>'
+                            eventsText += '<a class="uk-position-center-left uk-position-small uk-hidden-hover sliderArrow" href="#" uk-slidenav-previous uk-slider-item="previous"></a>'
+                            eventsText += '<a class="uk-position-center-right uk-position-small uk-hidden-hover sliderArrow" href="#" uk-slidenav-next uk-slider-item="next"></a>'
+                            eventsText += '</div></div>'
+                        }
+                        if (eventArray.events[i].documents.length != 0) {
+                            eventsText += '<div class="sliderFiles"><h4>Приложенные файлы:</h4>'
+                            for (let j = 0; j < eventArray.events[i].documents.length; j++) {
+                                eventsText += '<a href="' + eventArray.events[i].documents[j] + '" class="uk-button-default uk-button-text" style="text-decoration: none; padding: 5px;" download=""><span uk-icon="icon: file-text"></span>' + getFilename(eventArray.events[i].documents[j]) + '</a>'
+                            }
+                            eventsText += '</div>'
+                        }
+                        eventsText += '</div><hr>'
+                        this.prototipText = eventsText;
                     }
                 }
             })

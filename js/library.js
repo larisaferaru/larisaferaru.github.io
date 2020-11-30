@@ -3,3 +3,7 @@ function log(str) {
         console.log(str);
     }
 }
+function getFilename(url)
+{
+   return url.split('/').pop();
+}
