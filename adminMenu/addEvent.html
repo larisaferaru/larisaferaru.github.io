@@ -43,6 +43,7 @@
                     <button v-on:click="clearDouments">Очистить файлы</button>
                 </main>
             </div>
+            <h2>Предпросмотр записи:</h2>
             <div class="container" v-html="prototipText" style="margin-top: 25px;margin-bottom: 25px;"></div>
             <div style="height: 25;"></div>
             <button style="margin: auto;" v-on:click="pushToServer">Опубликовать запись</button>
@@ -182,6 +183,7 @@
                     }
                 }
             })
+            vm.render()
         </script>
         <script src="/js/menu.js"></script>    <!--Загружаем меню-->
     </body>
