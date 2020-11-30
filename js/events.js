@@ -22,7 +22,7 @@ for (let i = eventArray.events.length - 1; i >= 0; i--) {
     if (eventArray.events[i].documents.length != 0) {
         eventsText += '<div class="sliderFiles"><h4>Приложенные файлы:</h4>'
         for (let j = 0; j < eventArray.events[i].documents.length; j++) {
-            eventsText += '<a href="' + eventArray.events[i].documents[j] + '" class="uk-button-default uk-button-text" style="text-decoration: none; padding: 5px;" download=""><span uk-icon="icon: file-text"></span>README.md</a>'
+            eventsText += '<a href="' + eventArray.events[i].documents[j] + '" class="uk-button-default uk-button-text" style="text-decoration: none; padding: 5px;" download=""><span uk-icon="icon: file-text"></span>' + getFilename(eventArray.events[i].documents[j]) + '</a>'
         }
         eventsText += '</div>'
     }

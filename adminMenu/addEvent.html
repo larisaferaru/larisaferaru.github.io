@@ -156,6 +156,7 @@
                     },
                     pushToServer: function () {
                         if (confirm("Вы уверены, что хотите опубликовать эту запись?\nПосле публикации она станет видна всем.\nСначала тщательно проверьте запись.")) {
+                            let eventReq = new XMLHttpRequest();
                             eventReq.open("GET", "https://api.jsonbin.io/b/5fbe83c7177c556ef9b2c69c/latest", false);
                             eventReq.setRequestHeader("secret-key", "$2b$10$XH5aZr/st0eDUBWdbtD0rewEVGIIOI209qH09icZj8GknAeHK90xC");
                             eventReq.send();
@@ -168,6 +169,15 @@
                                 "images": this.formImages,
                                 "documents": this.formDocuments
                             }
+                            eventArray.events.push(tempEvent);
+                            log(JSON.stringify(eventArray))
+                            let reqPush = new XMLHttpRequest();
+                            reqPush.open("PUT", "https://api.jsonbin.io/b/5fbe83c7177c556ef9b2c69c", false);
+                            reqPush.setRequestHeader("Content-Type", "application/json");
+                            reqPush.setRequestHeader("secret-key", "$2b$10$XH5aZr/st0eDUBWdbtD0rewEVGIIOI209qH09icZj8GknAeHK90xC");
+                            reqPush.send(JSON.stringify(eventArray));
+                            alert("Успешно опубликовано!");
+                            location = "/";
                         }
                     }
                 }
