@@ -33,14 +33,18 @@
                     <section>
                         <h1 class="uk-heading-hero uk-padding-small">Документы</h1>
                     </section>
-                    <div class="container">
-                        <div class="document"></div>
+                    <div class="container" style="flex-wrap: wrap; flex-direction: row;justify-content: space-around;" v-html="documentsHtml">
+
+                        <!--div class="document">
+                            <div class="uk-card uk-card-default uk-card-body" style="margin: 10px; width: 400px;">
+                                <h3 class="uk-card-title">Физминутки для глаз</h3>
+                                <a href="" class="uk-button-default uk-button-text" style="text-decoration: none; padding: 5px;" download><span uk-icon="icon: cloud-download"></span>  Скачать:  Doc1.doc  </a>
+                            </div>
+                        </div-->
+
                     </div>
                 </main>
             </div>
-
-
-            
             <div style="width: 900px;height: 200px;"></div>
             <footer class="uk-tile-secondary">
                 <div style="justify-content: center;align-items: center;" class="container">
@@ -80,11 +84,13 @@
                     mainPhoto: mainJson.main_photo,
                     lowMainPhoto: "low_" + mainJson.main_photo,
                     recentEvents: "Идет загрузка последних событий...",
-                    menu: "Идет закрузка меню..."
+                    menu: "Идет закрузка меню...",
+                    documentsHtml: ""
                 }
             })
         </script>
         <script src="/js/menu.js"></script>    <!--Загружаем меню-->
+        <script src="/js/docList.js"></script>
 
 
 
