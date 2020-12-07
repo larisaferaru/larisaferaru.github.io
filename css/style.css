@@ -129,3 +129,10 @@ footer > ul {
 .sliderArrow:hover {
     background-color: #1111114f;
 }
+.sliderText {
+    text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0),0px 2px 0 rgb(0,0,0),0px -2px 0 rgb(0,0,0),2px 0px 0 rgb(0,0,0),-2px 0px 0 rgb(0,0,0),2px 2px 0 rgb(0,0,0),2px -2px 0 rgb(0,0,0),-2px 2px 0 rgb(0,0,0),-2px -2px 0 rgb(0,0,0),0px 3px 0 rgb(0,0,0),0px -3px 0 rgb(0,0,0),3px 0px 0 rgb(0,0,0),-3px 0px 0 rgb(0,0,0),3px 3px 0 rgb(0,0,0),3px -3px 0 rgb(0,0,0),-3px 3px 0 rgb(0,0,0),-3px -3px 0 rgb(0,0,0);
+    -webkit-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0),0px 2px 0 rgb(0,0,0),0px -2px 0 rgb(0,0,0),2px 0px 0 rgb(0,0,0),-2px 0px 0 rgb(0,0,0),2px 2px 0 rgb(0,0,0),2px -2px 0 rgb(0,0,0),-2px 2px 0 rgb(0,0,0),-2px -2px 0 rgb(0,0,0),0px 3px 0 rgb(0,0,0),0px -3px 0 rgb(0,0,0),3px 0px 0 rgb(0,0,0),-3px 0px 0 rgb(0,0,0),3px 3px 0 rgb(0,0,0),3px -3px 0 rgb(0,0,0),-3px 3px 0 rgb(0,0,0),-3px -3px 0 rgb(0,0,0);
+    -moz-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0),0px 2px 0 rgb(0,0,0),0px -2px 0 rgb(0,0,0),2px 0px 0 rgb(0,0,0),-2px 0px 0 rgb(0,0,0),2px 2px 0 rgb(0,0,0),2px -2px 0 rgb(0,0,0),-2px 2px 0 rgb(0,0,0),-2px -2px 0 rgb(0,0,0),0px 3px 0 rgb(0,0,0),0px -3px 0 rgb(0,0,0),3px 0px 0 rgb(0,0,0),-3px 0px 0 rgb(0,0,0),3px 3px 0 rgb(0,0,0),3px -3px 0 rgb(0,0,0),-3px 3px 0 rgb(0,0,0),-3px -3px 0 rgb(0,0,0);
+    font-size:55px;
+    color:rgb(255, 255, 255);
+}
