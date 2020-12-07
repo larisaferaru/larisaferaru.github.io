@@ -10,8 +10,8 @@ for (let i = docsArray.docs.length - 1; i >= 0; i--) {
     docsText += `
     <div class="document">
         <div class="uk-card uk-card-default uk-card-body" style="margin: 10px; width: 400px;">
-            <h3 class="uk-card-title">${docsArray.docs[i].header}</h3>
-            <a href="${docsArray.docs[i].link}" class="uk-button-default uk-button-text" style="text-decoration: none; padding: 5px;" download><span uk-icon="icon: cloud-download"></span>  Скачать:  ${getFilename(docsArray.docs[i].link)}  </a>
+            <h3 class="uk-card-title uk-text-truncate" onclick="navigator.clipboard.writeText('${docsArray.docs[i].link}')">${docsArray.docs[i].header}<span uk-icon="icon: link"></span></h3>
+            <a href="${docsArray.docs[i].link}" class="uk-button-default uk-button-text uk-text-truncate" style="text-decoration: none; padding: 5px; max-width: 350px; display: block;" download><span uk-icon="icon: cloud-download"></span>  Скачать:  ${getFilename(docsArray.docs[i].link)}  </a>
         </div>
     </div>
     `
