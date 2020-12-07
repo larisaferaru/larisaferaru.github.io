@@ -7,5 +7,5 @@ req.send();
 let mainJson = JSON.parse(req.responseText);
 if (mainJson.debug == "true") {let debug = true;}
 else {mainJson.debug == "false";};
-
+document.querySelector("title").innerHTML = "Лариса Ферару"
 log(req.responseText);
